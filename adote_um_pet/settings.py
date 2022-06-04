@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "adocao.apps.AdocaoConfig",
     "rest_framework",
     "corsheaders",
-    "",
 ]
 
 MIDDLEWARE = [
