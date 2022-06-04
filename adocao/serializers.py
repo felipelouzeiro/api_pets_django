@@ -1,4 +1,3 @@
-from asyncore import read
 from rest_framework import serializers
 from .models import Adocao
 from pet.serializers import PetSerializer
@@ -18,3 +17,14 @@ class AdocaoSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data["pet"] = validated_data.pop("pet_id")
         return super().create(validated_data)
+
+    def validate_value(self, value):
+        if value < 10:
+            raise serializers.ValidationError(
+                "Valor não deve ser inferior a 10"
+            )
+        if value > 100:
+            raise serializers.ValidationError(
+                "Valor não deve ser superior a 100"
+            )
+        return value
