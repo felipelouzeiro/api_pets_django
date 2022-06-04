@@ -1,4 +1,4 @@
 from django.urls import path
 from .views import AdocaoList
 
-urlpatterns = [path("", AdocaoList.as_view)]
+urlpatterns = [path("", AdocaoList.as_view())]
