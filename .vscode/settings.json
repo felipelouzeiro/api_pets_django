@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["adocao", "Adocao", "corsheaders"]
+  "cSpell.words": ["adocao", "Adocao", "corsheaders"],
+  "editor.formatOnSave": true
 }

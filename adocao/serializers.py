@@ -12,15 +12,19 @@ class AdocaoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Adocao
-        fields = ("id", "email", "value", "pet", "pet_id")
+        fields = ("id", "email", "donation", "pet", "pet_id")
 
     def create(self, validated_data):
         validated_data["pet"] = validated_data.pop("pet_id")
         return super().create(validated_data)
 
-    def validate_value(self, value):
-        if value < 10:
-            raise serializers.ValidationError("Valor não deve ser inferior a 10")
-        if value > 100:
-            raise serializers.ValidationError("Valor não deve ser superior a 100")
-        return value
+    def validate_value(self, donation):
+        if donation < 10:
+            raise serializers.ValidationError(
+                "Valor não deve ser inferior a 10"
+            )
+        if donation > 100:
+            raise serializers.ValidationError(
+                "Valor não deve ser superior a 100"
+            )
+        return donation
